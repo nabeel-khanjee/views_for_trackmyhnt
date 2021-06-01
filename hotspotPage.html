@@ -1,0 +1,2318 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="6T5xILkXOe96FuFJfdlm5rgNciL6LQhMhBUY0XlJ">
+
+    <title>Track My HNT</title>
+    <link rel="icon" href="/favicon.ico">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&amp;display=swap">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://hotspotty.net/css/app.css" />
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.3/tailwind.min.css" rel="stylesheet">
+
+
+
+
+    <link rel="stylesheet" href="../public/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        #map {
+            max-width: 800px;
+            max-height: 400px;
+            margin: 30px auto !important;
+        }
+    </style>
+
+
+    <!-- Scripts -->
+    <script type="text/javascript">
+        var Ziggy = {
+            namedRoutes: {
+                "debugbar.openhandler": {
+                    "uri": "_debugbar\/open",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "debugbar.clockwork": {
+                    "uri": "_debugbar\/clockwork\/{id}",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "debugbar.telescope": {
+                    "uri": "_debugbar\/telescope\/{id}",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "debugbar.assets.css": {
+                    "uri": "_debugbar\/assets\/stylesheets",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "debugbar.assets.js": {
+                    "uri": "_debugbar\/assets\/javascript",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "debugbar.cache.delete": {
+                    "uri": "_debugbar\/cache\/{key}\/{tags?}",
+                    "methods": ["DELETE"],
+                    "domain": null
+                },
+                "login": {
+                    "uri": "login",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "generated::qtQ4uikynFHgIamx": {
+                    "uri": "login",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "logout": {
+                    "uri": "logout",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "password.request": {
+                    "uri": "forgot-password",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "password.reset": {
+                    "uri": "reset-password\/{token}",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "password.email": {
+                    "uri": "forgot-password",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "password.update": {
+                    "uri": "reset-password",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "register": {
+                    "uri": "register",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "generated::v7pbxI5595ReVpfg": {
+                    "uri": "register",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "verification.notice": {
+                    "uri": "email\/verify",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "verification.verify": {
+                    "uri": "email\/verify\/{id}\/{hash}",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "verification.send": {
+                    "uri": "email\/verification-notification",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "user-profile-information.update": {
+                    "uri": "user\/profile-information",
+                    "methods": ["PUT"],
+                    "domain": null
+                },
+                "user-password.update": {
+                    "uri": "user\/password",
+                    "methods": ["PUT"],
+                    "domain": null
+                },
+                "password.confirm": {
+                    "uri": "user\/confirm-password",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "password.confirmation": {
+                    "uri": "user\/confirmed-password-status",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "generated::zfWVXeWzgM8E6zs3": {
+                    "uri": "user\/confirm-password",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "two-factor.login": {
+                    "uri": "two-factor-challenge",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "generated::GVXWAzrwf6K6L2bC": {
+                    "uri": "two-factor-challenge",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "generated::8ffQZMcheXycPHvK": {
+                    "uri": "user\/two-factor-authentication",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "generated::R9rLmXaU6DPFaxRi": {
+                    "uri": "user\/two-factor-authentication",
+                    "methods": ["DELETE"],
+                    "domain": null
+                },
+                "generated::9T5GmIovcGc5sh2P": {
+                    "uri": "user\/two-factor-qr-code",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "generated::uINrlxTb5qRZOfxH": {
+                    "uri": "user\/two-factor-recovery-codes",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "generated::A5wBTU75GedNh1tv": {
+                    "uri": "user\/two-factor-recovery-codes",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "profile.show": {
+                    "uri": "user\/profile",
+                    "methods": ["GET", "PUT", "HEAD"],
+                    "domain": null
+                },
+                "other-browser-sessions.destroy": {
+                    "uri": "user\/other-browser-sessions",
+                    "methods": ["DELETE"],
+                    "domain": null
+                },
+                "current-user.destroy": {
+                    "uri": "user",
+                    "methods": ["DELETE"],
+                    "domain": null
+                },
+                "current-user-photo.destroy": {
+                    "uri": "user\/profile-photo",
+                    "methods": ["DELETE"],
+                    "domain": null
+                },
+                "generated::1C7aQbGCQoYIJ7Er": {
+                    "uri": "sanctum\/csrf-cookie",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "generated::yzYYxDhYbT7p0nUP": {
+                    "uri": "api\/user",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "generated::KqkxCPCILHdTu5dx": {
+                    "uri": "\/",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "dashboard": {
+                    "uri": "dashboard",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "hotspots": {
+                    "uri": "hotspots",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "hotspot": {
+                    "uri": "hotspot\/{address}",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "generated::yuWHdBmxTfNHKrml": {
+                    "uri": "hotspots",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "generated::aQqBD4UdTjass5zy": {
+                    "uri": "hotspots\/{id}",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "hosts": {
+                    "uri": "hosts",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "host": {
+                    "uri": "hosts\/{uuid}",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "referral": {
+                    "uri": "referrals\/{uuid}",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "partner": {
+                    "uri": "partners\/{uuid}",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "hosts-add-new": {
+                    "uri": "hosts",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "referral-add-new": {
+                    "uri": "referral",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "partner-add-new": {
+                    "uri": "partner",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "host-edit": {
+                    "uri": "hosts\/{uuid}",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "referral-edit": {
+                    "uri": "referrals\/{uuid}",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "partner-edit": {
+                    "uri": "partners\/{uuid}",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "host-pay": {
+                    "uri": "hosts\/record-payment\/{uuid}",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "referral-pay": {
+                    "uri": "referrals\/record-payment\/{uuid}",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "partner-pay": {
+                    "uri": "partners\/record-payment\/{uuid}",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "attach-host": {
+                    "uri": "hotspot\/{address}\/host",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "attach-referral": {
+                    "uri": "hotspot\/{address}\/referral",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "attach-partner": {
+                    "uri": "hotspot\/{address}\/partner",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "queue-monitor::index": {
+                    "uri": "jobs",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                },
+                "update-wallet": {
+                    "uri": "user\/update-wallet",
+                    "methods": ["POST"],
+                    "domain": null
+                },
+                "excel-export": {
+                    "uri": "excel-export\/{uuid}\/{days}",
+                    "methods": ["GET", "HEAD"],
+                    "domain": null
+                }
+            },
+            baseUrl: 'https://hotspotty.net/',
+            baseProtocol: 'https',
+            baseDomain: 'hotspotty.net',
+            basePort: false,
+            defaultParameters: []
+        };
+
+        ! function(e, t) {
+            "object" == typeof exports && "object" == typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define("route", [], t) : "object" == typeof exports ? exports.route = t() : e.route = t()
+        }(this, function() {
+            return function(e) {
+                var t = {};
+
+                function r(n) {
+                    if (t[n]) return t[n].exports;
+                    var o = t[n] = {
+                        i: n,
+                        l: !1,
+                        exports: {}
+                    };
+                    return e[n].call(o.exports, o, o.exports, r), o.l = !0, o.exports
+                }
+                return r.m = e, r.c = t, r.d = function(e, t, n) {
+                    r.o(e, t) || Object.defineProperty(e, t, {
+                        enumerable: !0,
+                        get: n
+                    })
+                }, r.r = function(e) {
+                    "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
+                        value: "Module"
+                    }), Object.defineProperty(e, "__esModule", {
+                        value: !0
+                    })
+                }, r.t = function(e, t) {
+                    if (1 & t && (e = r(e)), 8 & t) return e;
+                    if (4 & t && "object" == typeof e && e && e.__esModule) return e;
+                    var n = Object.create(null);
+                    if (r.r(n), Object.defineProperty(n, "default", {
+                            enumerable: !0,
+                            value: e
+                        }), 2 & t && "string" != typeof e)
+                        for (var o in e) r.d(n, o, function(t) {
+                            return e[t]
+                        }.bind(null, o));
+                    return n
+                }, r.n = function(e) {
+                    var t = e && e.__esModule ? function() {
+                        return e.default
+                    } : function() {
+                        return e
+                    };
+                    return r.d(t, "a", t), t
+                }, r.o = function(e, t) {
+                    return Object.prototype.hasOwnProperty.call(e, t)
+                }, r.p = "", r(r.s = 5)
+            }([function(e, t, r) {
+                "use strict";
+                var n = Object.prototype.hasOwnProperty,
+                    o = Array.isArray,
+                    i = function() {
+                        for (var e = [], t = 0; t < 256; ++t) e.push("%" + ((t < 16 ? "0" : "") + t.toString(16)).toUpperCase());
+                        return e
+                    }(),
+                    a = function(e, t) {
+                        for (var r = t && t.plainObjects ? Object.create(null) : {}, n = 0; n < e.length; ++n) void 0 !== e[n] && (r[n] = e[n]);
+                        return r
+                    };
+                e.exports = {
+                    arrayToObject: a,
+                    assign: function(e, t) {
+                        return Object.keys(t).reduce(function(e, r) {
+                            return e[r] = t[r], e
+                        }, e)
+                    },
+                    combine: function(e, t) {
+                        return [].concat(e, t)
+                    },
+                    compact: function(e) {
+                        for (var t = [{
+                                obj: {
+                                    o: e
+                                },
+                                prop: "o"
+                            }], r = [], n = 0; n < t.length; ++n)
+                            for (var i = t[n], a = i.obj[i.prop], u = Object.keys(a), c = 0; c < u.length; ++c) {
+                                var l = u[c],
+                                    s = a[l];
+                                "object" == typeof s && null !== s && -1 === r.indexOf(s) && (t.push({
+                                    obj: a,
+                                    prop: l
+                                }), r.push(s))
+                            }
+                        return function(e) {
+                            for (; e.length > 1;) {
+                                var t = e.pop(),
+                                    r = t.obj[t.prop];
+                                if (o(r)) {
+                                    for (var n = [], i = 0; i < r.length; ++i) void 0 !== r[i] && n.push(r[i]);
+                                    t.obj[t.prop] = n
+                                }
+                            }
+                        }(t), e
+                    },
+                    decode: function(e, t, r) {
+                        var n = e.replace(/\+/g, " ");
+                        if ("iso-8859-1" === r) return n.replace(/%[0-9a-f]{2}/gi, unescape);
+                        try {
+                            return decodeURIComponent(n)
+                        } catch (e) {
+                            return n
+                        }
+                    },
+                    encode: function(e, t, r) {
+                        if (0 === e.length) return e;
+                        var n = e;
+                        if ("symbol" == typeof e ? n = Symbol.prototype.toString.call(e) : "string" != typeof e && (n = String(e)), "iso-8859-1" === r) return escape(n).replace(/%u[0-9a-f]{4}/gi, function(e) {
+                            return "%26%23" + parseInt(e.slice(2), 16) + "%3B"
+                        });
+                        for (var o = "", a = 0; a < n.length; ++a) {
+                            var u = n.charCodeAt(a);
+                            45 === u || 46 === u || 95 === u || 126 === u || u >= 48 && u <= 57 || u >= 65 && u <= 90 || u >= 97 && u <= 122 ? o += n.charAt(a) : u < 128 ? o += i[u] : u < 2048 ? o += i[192 | u >> 6] + i[128 | 63 & u] : u < 55296 || u >= 57344 ? o += i[224 | u >> 12] + i[128 | u >> 6 & 63] + i[128 | 63 & u] : (a += 1, u = 65536 + ((1023 & u) << 10 | 1023 & n.charCodeAt(a)), o += i[240 | u >> 18] + i[128 | u >> 12 & 63] + i[128 | u >> 6 & 63] + i[128 | 63 & u])
+                        }
+                        return o
+                    },
+                    isBuffer: function(e) {
+                        return !(!e || "object" != typeof e || !(e.constructor && e.constructor.isBuffer && e.constructor.isBuffer(e)))
+                    },
+                    isRegExp: function(e) {
+                        return "[object RegExp]" === Object.prototype.toString.call(e)
+                    },
+                    merge: function e(t, r, i) {
+                        if (!r) return t;
+                        if ("object" != typeof r) {
+                            if (o(t)) t.push(r);
+                            else {
+                                if (!t || "object" != typeof t) return [t, r];
+                                (i && (i.plainObjects || i.allowPrototypes) || !n.call(Object.prototype, r)) && (t[r] = !0)
+                            }
+                            return t
+                        }
+                        if (!t || "object" != typeof t) return [t].concat(r);
+                        var u = t;
+                        return o(t) && !o(r) && (u = a(t, i)), o(t) && o(r) ? (r.forEach(function(r, o) {
+                            if (n.call(t, o)) {
+                                var a = t[o];
+                                a && "object" == typeof a && r && "object" == typeof r ? t[o] = e(a, r, i) : t.push(r)
+                            } else t[o] = r
+                        }), t) : Object.keys(r).reduce(function(t, o) {
+                            var a = r[o];
+                            return n.call(t, o) ? t[o] = e(t[o], a, i) : t[o] = a, t
+                        }, u)
+                    }
+                }
+            }, function(e, t, r) {
+                "use strict";
+                var n = String.prototype.replace,
+                    o = /%20/g,
+                    i = r(0),
+                    a = {
+                        RFC1738: "RFC1738",
+                        RFC3986: "RFC3986"
+                    };
+                e.exports = i.assign({
+                    default: a.RFC3986,
+                    formatters: {
+                        RFC1738: function(e) {
+                            return n.call(e, o, "+")
+                        },
+                        RFC3986: function(e) {
+                            return String(e)
+                        }
+                    }
+                }, a)
+            }, function(e, t, r) {
+                "use strict";
+                var n = r(3),
+                    o = r(4),
+                    i = r(1);
+                e.exports = {
+                    formats: i,
+                    parse: o,
+                    stringify: n
+                }
+            }, function(e, t, r) {
+                "use strict";
+                var n = r(0),
+                    o = r(1),
+                    i = Object.prototype.hasOwnProperty,
+                    a = {
+                        brackets: function(e) {
+                            return e + "[]"
+                        },
+                        comma: "comma",
+                        indices: function(e, t) {
+                            return e + "[" + t + "]"
+                        },
+                        repeat: function(e) {
+                            return e
+                        }
+                    },
+                    u = Array.isArray,
+                    c = Array.prototype.push,
+                    l = function(e, t) {
+                        c.apply(e, u(t) ? t : [t])
+                    },
+                    s = Date.prototype.toISOString,
+                    f = o.default,
+                    p = {
+                        addQueryPrefix: !1,
+                        allowDots: !1,
+                        charset: "utf-8",
+                        charsetSentinel: !1,
+                        delimiter: "&",
+                        encode: !0,
+                        encoder: n.encode,
+                        encodeValuesOnly: !1,
+                        format: f,
+                        formatter: o.formatters[f],
+                        indices: !1,
+                        serializeDate: function(e) {
+                            return s.call(e)
+                        },
+                        skipNulls: !1,
+                        strictNullHandling: !1
+                    },
+                    d = function e(t, r, o, i, a, c, s, f, d, y, h, m, b) {
+                        var g, v = t;
+                        if ("function" == typeof s ? v = s(r, v) : v instanceof Date ? v = y(v) : "comma" === o && u(v) && (v = v.join(",")), null === v) {
+                            if (i) return c && !m ? c(r, p.encoder, b) : r;
+                            v = ""
+                        }
+                        if ("string" == typeof(g = v) || "number" == typeof g || "boolean" == typeof g || "symbol" == typeof g || "bigint" == typeof g || n.isBuffer(v)) return c ? [h(m ? r : c(r, p.encoder, b)) + "=" + h(c(v, p.encoder, b))] : [h(r) + "=" + h(String(v))];
+                        var O, w = [];
+                        if (void 0 === v) return w;
+                        if (u(s)) O = s;
+                        else {
+                            var j = Object.keys(v);
+                            O = f ? j.sort(f) : j
+                        }
+                        for (var P = 0; P < O.length; ++P) {
+                            var x = O[P];
+                            a && null === v[x] || (u(v) ? l(w, e(v[x], "function" == typeof o ? o(r, x) : r, o, i, a, c, s, f, d, y, h, m, b)) : l(w, e(v[x], r + (d ? "." + x : "[" + x + "]"), o, i, a, c, s, f, d, y, h, m, b)))
+                        }
+                        return w
+                    };
+                e.exports = function(e, t) {
+                    var r, n = e,
+                        c = function(e) {
+                            if (!e) return p;
+                            if (null !== e.encoder && void 0 !== e.encoder && "function" != typeof e.encoder) throw new TypeError("Encoder has to be a function.");
+                            var t = e.charset || p.charset;
+                            if (void 0 !== e.charset && "utf-8" !== e.charset && "iso-8859-1" !== e.charset) throw new TypeError("The charset option must be either utf-8, iso-8859-1, or undefined");
+                            var r = o.default;
+                            if (void 0 !== e.format) {
+                                if (!i.call(o.formatters, e.format)) throw new TypeError("Unknown format option provided.");
+                                r = e.format
+                            }
+                            var n = o.formatters[r],
+                                a = p.filter;
+                            return ("function" == typeof e.filter || u(e.filter)) && (a = e.filter), {
+                                addQueryPrefix: "boolean" == typeof e.addQueryPrefix ? e.addQueryPrefix : p.addQueryPrefix,
+                                allowDots: void 0 === e.allowDots ? p.allowDots : !!e.allowDots,
+                                charset: t,
+                                charsetSentinel: "boolean" == typeof e.charsetSentinel ? e.charsetSentinel : p.charsetSentinel,
+                                delimiter: void 0 === e.delimiter ? p.delimiter : e.delimiter,
+                                encode: "boolean" == typeof e.encode ? e.encode : p.encode,
+                                encoder: "function" == typeof e.encoder ? e.encoder : p.encoder,
+                                encodeValuesOnly: "boolean" == typeof e.encodeValuesOnly ? e.encodeValuesOnly : p.encodeValuesOnly,
+                                filter: a,
+                                formatter: n,
+                                serializeDate: "function" == typeof e.serializeDate ? e.serializeDate : p.serializeDate,
+                                skipNulls: "boolean" == typeof e.skipNulls ? e.skipNulls : p.skipNulls,
+                                sort: "function" == typeof e.sort ? e.sort : null,
+                                strictNullHandling: "boolean" == typeof e.strictNullHandling ? e.strictNullHandling : p.strictNullHandling
+                            }
+                        }(t);
+                    "function" == typeof c.filter ? n = (0, c.filter)("", n) : u(c.filter) && (r = c.filter);
+                    var s, f = [];
+                    if ("object" != typeof n || null === n) return "";
+                    s = t && t.arrayFormat in a ? t.arrayFormat : t && "indices" in t ? t.indices ? "indices" : "repeat" : "indices";
+                    var y = a[s];
+                    r || (r = Object.keys(n)), c.sort && r.sort(c.sort);
+                    for (var h = 0; h < r.length; ++h) {
+                        var m = r[h];
+                        c.skipNulls && null === n[m] || l(f, d(n[m], m, y, c.strictNullHandling, c.skipNulls, c.encode ? c.encoder : null, c.filter, c.sort, c.allowDots, c.serializeDate, c.formatter, c.encodeValuesOnly, c.charset))
+                    }
+                    var b = f.join(c.delimiter),
+                        g = !0 === c.addQueryPrefix ? "?" : "";
+                    return c.charsetSentinel && ("iso-8859-1" === c.charset ? g += "utf8=%26%2310003%3B&" : g += "utf8=%E2%9C%93&"), b.length > 0 ? g + b : ""
+                }
+            }, function(e, t, r) {
+                "use strict";
+                var n = r(0),
+                    o = Object.prototype.hasOwnProperty,
+                    i = {
+                        allowDots: !1,
+                        allowPrototypes: !1,
+                        arrayLimit: 20,
+                        charset: "utf-8",
+                        charsetSentinel: !1,
+                        comma: !1,
+                        decoder: n.decode,
+                        delimiter: "&",
+                        depth: 5,
+                        ignoreQueryPrefix: !1,
+                        interpretNumericEntities: !1,
+                        parameterLimit: 1e3,
+                        parseArrays: !0,
+                        plainObjects: !1,
+                        strictNullHandling: !1
+                    },
+                    a = function(e) {
+                        return e.replace(/&#(\d+);/g, function(e, t) {
+                            return String.fromCharCode(parseInt(t, 10))
+                        })
+                    },
+                    u = function(e, t, r) {
+                        if (e) {
+                            var n = r.allowDots ? e.replace(/\.([^.[]+)/g, "[$1]") : e,
+                                i = /(\[[^[\]]*])/g,
+                                a = r.depth > 0 && /(\[[^[\]]*])/.exec(n),
+                                u = a ? n.slice(0, a.index) : n,
+                                c = [];
+                            if (u) {
+                                if (!r.plainObjects && o.call(Object.prototype, u) && !r.allowPrototypes) return;
+                                c.push(u)
+                            }
+                            for (var l = 0; r.depth > 0 && null !== (a = i.exec(n)) && l < r.depth;) {
+                                if (l += 1, !r.plainObjects && o.call(Object.prototype, a[1].slice(1, -1)) && !r.allowPrototypes) return;
+                                c.push(a[1])
+                            }
+                            return a && c.push("[" + n.slice(a.index) + "]"),
+                                function(e, t, r) {
+                                    for (var n = t, o = e.length - 1; o >= 0; --o) {
+                                        var i, a = e[o];
+                                        if ("[]" === a && r.parseArrays) i = [].concat(n);
+                                        else {
+                                            i = r.plainObjects ? Object.create(null) : {};
+                                            var u = "[" === a.charAt(0) && "]" === a.charAt(a.length - 1) ? a.slice(1, -1) : a,
+                                                c = parseInt(u, 10);
+                                            r.parseArrays || "" !== u ? !isNaN(c) && a !== u && String(c) === u && c >= 0 && r.parseArrays && c <= r.arrayLimit ? (i = [])[c] = n : i[u] = n : i = {
+                                                0: n
+                                            }
+                                        }
+                                        n = i
+                                    }
+                                    return n
+                                }(c, t, r)
+                        }
+                    };
+                e.exports = function(e, t) {
+                    var r = function(e) {
+                        if (!e) return i;
+                        if (null !== e.decoder && void 0 !== e.decoder && "function" != typeof e.decoder) throw new TypeError("Decoder has to be a function.");
+                        if (void 0 !== e.charset && "utf-8" !== e.charset && "iso-8859-1" !== e.charset) throw new Error("The charset option must be either utf-8, iso-8859-1, or undefined");
+                        var t = void 0 === e.charset ? i.charset : e.charset;
+                        return {
+                            allowDots: void 0 === e.allowDots ? i.allowDots : !!e.allowDots,
+                            allowPrototypes: "boolean" == typeof e.allowPrototypes ? e.allowPrototypes : i.allowPrototypes,
+                            arrayLimit: "number" == typeof e.arrayLimit ? e.arrayLimit : i.arrayLimit,
+                            charset: t,
+                            charsetSentinel: "boolean" == typeof e.charsetSentinel ? e.charsetSentinel : i.charsetSentinel,
+                            comma: "boolean" == typeof e.comma ? e.comma : i.comma,
+                            decoder: "function" == typeof e.decoder ? e.decoder : i.decoder,
+                            delimiter: "string" == typeof e.delimiter || n.isRegExp(e.delimiter) ? e.delimiter : i.delimiter,
+                            depth: "number" == typeof e.depth || !1 === e.depth ? +e.depth : i.depth,
+                            ignoreQueryPrefix: !0 === e.ignoreQueryPrefix,
+                            interpretNumericEntities: "boolean" == typeof e.interpretNumericEntities ? e.interpretNumericEntities : i.interpretNumericEntities,
+                            parameterLimit: "number" == typeof e.parameterLimit ? e.parameterLimit : i.parameterLimit,
+                            parseArrays: !1 !== e.parseArrays,
+                            plainObjects: "boolean" == typeof e.plainObjects ? e.plainObjects : i.plainObjects,
+                            strictNullHandling: "boolean" == typeof e.strictNullHandling ? e.strictNullHandling : i.strictNullHandling
+                        }
+                    }(t);
+                    if ("" === e || null == e) return r.plainObjects ? Object.create(null) : {};
+                    for (var c = "string" == typeof e ? function(e, t) {
+                            var r, u = {},
+                                c = t.ignoreQueryPrefix ? e.replace(/^\?/, "") : e,
+                                l = t.parameterLimit === 1 / 0 ? void 0 : t.parameterLimit,
+                                s = c.split(t.delimiter, l),
+                                f = -1,
+                                p = t.charset;
+                            if (t.charsetSentinel)
+                                for (r = 0; r < s.length; ++r) 0 === s[r].indexOf("utf8=") && ("utf8=%E2%9C%93" === s[r] ? p = "utf-8" : "utf8=%26%2310003%3B" === s[r] && (p = "iso-8859-1"), f = r, r = s.length);
+                            for (r = 0; r < s.length; ++r)
+                                if (r !== f) {
+                                    var d, y, h = s[r],
+                                        m = h.indexOf("]="),
+                                        b = -1 === m ? h.indexOf("=") : m + 1; - 1 === b ? (d = t.decoder(h, i.decoder, p), y = t.strictNullHandling ? null : "") : (d = t.decoder(h.slice(0, b), i.decoder, p), y = t.decoder(h.slice(b + 1), i.decoder, p)), y && t.interpretNumericEntities && "iso-8859-1" === p && (y = a(y)), y && t.comma && y.indexOf(",") > -1 && (y = y.split(",")), o.call(u, d) ? u[d] = n.combine(u[d], y) : u[d] = y
+                                }
+                            return u
+                        }(e, r) : e, l = r.plainObjects ? Object.create(null) : {}, s = Object.keys(c), f = 0; f < s.length; ++f) {
+                        var p = s[f],
+                            d = u(p, c[p], r);
+                        l = n.merge(l, d, r)
+                    }
+                    return n.compact(l)
+                }
+            }, function(e, t, r) {
+                "use strict";
+
+                function n(e, t) {
+                    for (var r = 0; r < t.length; r++) {
+                        var n = t[r];
+                        n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n && (n.writable = !0), Object.defineProperty(e, n.key, n)
+                    }
+                }
+                r.r(t);
+                var o = function() {
+                        function e(t, r, n) {
+                            if (function(e, t) {
+                                    if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function")
+                                }(this, e), this.name = t, this.ziggy = n, this.route = this.ziggy.namedRoutes[this.name], void 0 === this.name) throw new Error("Ziggy Error: You must provide a route name");
+                            if (void 0 === this.route) throw new Error("Ziggy Error: route '".concat(this.name, "' is not found in the route list"));
+                            this.absolute = void 0 === r || r, this.domain = this.setDomain(), this.path = this.route.uri.replace(/^\//, "")
+                        }
+                        var t, r;
+                        return t = e, (r = [{
+                            key: "setDomain",
+                            value: function() {
+                                if (!this.absolute) return "/";
+                                if (!this.route.domain) return this.ziggy.baseUrl.replace(/\/?$/, "/");
+                                var e = (this.route.domain || this.ziggy.baseDomain).replace(/\/+$/, "");
+                                return this.ziggy.basePort && e.replace(/\/+$/, "") === this.ziggy.baseDomain.replace(/\/+$/, "") && (e = this.ziggy.baseDomain + ":" + this.ziggy.basePort), this.ziggy.baseProtocol + "://" + e + "/"
+                            }
+                        }, {
+                            key: "construct",
+                            value: function() {
+                                return this.domain + this.path
+                            }
+                        }]) && n(t.prototype, r), e
+                    }(),
+                    i = r(2);
+
+                function a() {
+                    return (a = Object.assign || function(e) {
+                        for (var t = 1; t < arguments.length; t++) {
+                            var r = arguments[t];
+                            for (var n in r) Object.prototype.hasOwnProperty.call(r, n) && (e[n] = r[n])
+                        }
+                        return e
+                    }).apply(this, arguments)
+                }
+
+                function u(e) {
+                    return (u = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e) {
+                        return typeof e
+                    } : function(e) {
+                        return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e
+                    })(e)
+                }
+
+                function c(e, t) {
+                    for (var r = 0; r < t.length; r++) {
+                        var n = t[r];
+                        n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n && (n.writable = !0), Object.defineProperty(e, n.key, n)
+                    }
+                }
+
+                function l(e) {
+                    var t = "function" == typeof Map ? new Map : void 0;
+                    return (l = function(e) {
+                        if (null === e || (r = e, -1 === Function.toString.call(r).indexOf("[native code]"))) return e;
+                        var r;
+                        if ("function" != typeof e) throw new TypeError("Super expression must either be null or a function");
+                        if (void 0 !== t) {
+                            if (t.has(e)) return t.get(e);
+                            t.set(e, n)
+                        }
+
+                        function n() {
+                            return function(e, t, r) {
+                                return (function() {
+                                    if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+                                    if (Reflect.construct.sham) return !1;
+                                    if ("function" == typeof Proxy) return !0;
+                                    try {
+                                        return Date.prototype.toString.call(Reflect.construct(Date, [], function() {})), !0
+                                    } catch (e) {
+                                        return !1
+                                    }
+                                }() ? Reflect.construct : function(e, t, r) {
+                                    var n = [null];
+                                    n.push.apply(n, t);
+                                    var o = new(Function.bind.apply(e, n));
+                                    return r && s(o, r.prototype), o
+                                }).apply(null, arguments)
+                            }(e, arguments, f(this).constructor)
+                        }
+                        return n.prototype = Object.create(e.prototype, {
+                            constructor: {
+                                value: n,
+                                enumerable: !1,
+                                writable: !0,
+                                configurable: !0
+                            }
+                        }), s(n, e)
+                    })(e)
+                }
+
+                function s(e, t) {
+                    return (s = Object.setPrototypeOf || function(e, t) {
+                        return e.__proto__ = t, e
+                    })(e, t)
+                }
+
+                function f(e) {
+                    return (f = Object.setPrototypeOf ? Object.getPrototypeOf : function(e) {
+                        return e.__proto__ || Object.getPrototypeOf(e)
+                    })(e)
+                }
+                r.d(t, "default", function() {
+                    return d
+                });
+                var p = function(e) {
+                    function t(e, r, n) {
+                        var i, a = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : null;
+                        return function(e, t) {
+                            if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function")
+                        }(this, t), (i = function(e, t) {
+                            return !t || "object" !== u(t) && "function" != typeof t ? function(e) {
+                                if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+                                return e
+                            }(e) : t
+                        }(this, f(t).call(this))).name = e, i.absolute = n, i.ziggy = a || Ziggy, i.urlBuilder = i.name ? new o(e, n, i.ziggy) : null, i.template = i.urlBuilder ? i.urlBuilder.construct() : "", i.urlParams = i.normalizeParams(r), i.queryParams = {}, i.hydrated = "", i
+                    }
+                    var r, n;
+                    return function(e, t) {
+                        if ("function" != typeof t && null !== t) throw new TypeError("Super expression must either be null or a function");
+                        e.prototype = Object.create(t && t.prototype, {
+                            constructor: {
+                                value: e,
+                                writable: !0,
+                                configurable: !0
+                            }
+                        }), t && s(e, t)
+                    }(t, l(String)), r = t, (n = [{
+                        key: "normalizeParams",
+                        value: function(e) {
+                            return void 0 === e ? {} : ((e = "object" !== u(e) ? [e] : e).hasOwnProperty("id") && -1 == this.template.indexOf("{id}") && (e = [e.id]), this.numericParamIndices = Array.isArray(e), a({}, e))
+                        }
+                    }, {
+                        key: "with",
+                        value: function(e) {
+                            return this.urlParams = this.normalizeParams(e), this
+                        }
+                    }, {
+                        key: "withQuery",
+                        value: function(e) {
+                            return a(this.queryParams, e), this
+                        }
+                    }, {
+                        key: "hydrateUrl",
+                        value: function() {
+                            var e = this;
+                            if (this.hydrated) return this.hydrated;
+                            var t = this.template.replace(/{([^}]+)}/gi, function(t, r) {
+                                var n, o, i = e.trimParam(t);
+                                if (e.ziggy.defaultParameters.hasOwnProperty(i) && (n = e.ziggy.defaultParameters[i]), n && !e.urlParams[i]) return delete e.urlParams[i], n;
+                                if (e.numericParamIndices ? (e.urlParams = Object.values(e.urlParams), o = e.urlParams.shift()) : (o = e.urlParams[i], delete e.urlParams[i]), void 0 === o) {
+                                    if (-1 === t.indexOf("?")) throw new Error("Ziggy Error: '" + i + "' key is required for route '" + e.name + "'");
+                                    return ""
+                                }
+                                return o.id ? encodeURIComponent(o.id) : encodeURIComponent(o)
+                            });
+                            return null != this.urlBuilder && "" !== this.urlBuilder.path && (t = t.replace(/\/+$/, "")), this.hydrated = t, this.hydrated
+                        }
+                    }, {
+                        key: "matchUrl",
+                        value: function() {
+                            var e = window.location.hostname + (window.location.port ? ":" + window.location.port : "") + window.location.pathname,
+                                t = this.template.replace(/(\/\{[^\}]*\?\})/g, "/").replace(/(\{[^\}]*\})/gi, "[^/?]+").replace(/\/?$/, "").split("://")[1],
+                                r = this.template.replace(/(\{[^\}]*\})/gi, "[^/?]+").split("://")[1],
+                                n = e.replace(/\/?$/, "/"),
+                                o = new RegExp("^" + r + "/$").test(n),
+                                i = new RegExp("^" + t + "/$").test(n);
+                            return o || i
+                        }
+                    }, {
+                        key: "constructQuery",
+                        value: function() {
+                            if (0 === Object.keys(this.queryParams).length && 0 === Object.keys(this.urlParams).length) return "";
+                            var e = a(this.urlParams, this.queryParams);
+                            return Object(i.stringify)(e, {
+                                encodeValuesOnly: !0,
+                                skipNulls: !0,
+                                addQueryPrefix: !0,
+                                arrayFormat: "indices"
+                            })
+                        }
+                    }, {
+                        key: "current",
+                        value: function() {
+                            var e = this,
+                                r = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : null,
+                                n = Object.keys(this.ziggy.namedRoutes),
+                                o = n.filter(function(r) {
+                                    return -1 !== e.ziggy.namedRoutes[r].methods.indexOf("GET") && new t(r, void 0, void 0, e.ziggy).matchUrl()
+                                })[0];
+                            if (r) {
+                                var i = new RegExp("^" + r.replace("*", ".*").replace(".", ".") + "$", "i");
+                                return i.test(o)
+                            }
+                            return o
+                        }
+                    }, {
+                        key: "check",
+                        value: function(e) {
+                            return Object.keys(this.ziggy.namedRoutes).includes(e)
+                        }
+                    }, {
+                        key: "extractParams",
+                        value: function(e, t, r) {
+                            var n = this,
+                                o = e.split(r);
+                            return t.split(r).reduce(function(e, t, r) {
+                                return 0 === t.indexOf("{") && -1 !== t.indexOf("}") && o[r] ? a(e, (i = {}, u = n.trimParam(t), c = o[r], u in i ? Object.defineProperty(i, u, {
+                                    value: c,
+                                    enumerable: !0,
+                                    configurable: !0,
+                                    writable: !0
+                                }) : i[u] = c, i)) : e;
+                                var i, u, c
+                            }, {})
+                        }
+                    }, {
+                        key: "parse",
+                        value: function() {
+                            this.return = this.hydrateUrl() + this.constructQuery()
+                        }
+                    }, {
+                        key: "url",
+                        value: function() {
+                            return this.parse(), this.return
+                        }
+                    }, {
+                        key: "toString",
+                        value: function() {
+                            return this.url()
+                        }
+                    }, {
+                        key: "trimParam",
+                        value: function(e) {
+                            return e.replace(/{|}|\?/g, "")
+                        }
+                    }, {
+                        key: "valueOf",
+                        value: function() {
+                            return this.url()
+                        }
+                    }, {
+                        key: "params",
+                        get: function() {
+                            var e = this.ziggy.namedRoutes[this.current()];
+                            return a(this.extractParams(window.location.hostname, e.domain || "", "."), this.extractParams(window.location.pathname.slice(1), e.uri, "/"))
+                        }
+                    }]) && c(r.prototype, n), t
+                }();
+
+                function d(e, t, r, n) {
+                    return new p(e, t, r, n)
+                }
+            }]).default
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer=""></script>
+    <script src="/js/app.js" defer=""></script>
+    <style type="text/css">
+        .rotate[data-v-2265de1f] {
+            -webkit-animation: rotation-data-v-2265de1f 2s linear infinite;
+            animation: rotation-data-v-2265de1f 2s linear infinite
+        }
+        
+        @-webkit-keyframes rotation-data-v-2265de1f {
+            0% {
+                transform: rotate(359deg)
+            }
+            to {
+                transform: rotate(0deg)
+            }
+        }
+        
+        @keyframes rotation-data-v-2265de1f {
+            0% {
+                transform: rotate(359deg)
+            }
+            to {
+                transform: rotate(0deg)
+            }
+        }
+    </style>
+    <style type="text/css">
+        /* Chart.js */
+        /*
+* DOM element rendering detection
+* https://davidwalsh.name/detect-node-insertion
+*/
+        
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .chartjs-render-monitor {
+            animation: chartjs-render-animation 0.001s;
+        }
+        /*
+* DOM element resizing detection
+* https://github.com/marcj/css-element-queries
+*/
+        
+        .chartjs-size-monitor,
+        .chartjs-size-monitor-expand,
+        .chartjs-size-monitor-shrink {
+            position: absolute;
+            direction: ltr;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            pointer-events: none;
+            visibility: hidden;
+            z-index: -1;
+        }
+        
+        .chartjs-size-monitor-expand>div {
+            position: absolute;
+            width: 1000000px;
+            height: 1000000px;
+            left: 0;
+            top: 0;
+        }
+        
+        .chartjs-size-monitor-shrink>div {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased">
+    <div class="min-h-screen bg-gray-100">
+        <div id="myNav" class="overlay" style="    background-color: rgb(255, 255, 255);
+        background-color: rgb(255, 255, 255);">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a href="/">Dashboard</a>
+                <a href="/hotspot">Hotspot</a>
+                <a href="/profile">Profile</a>
+                <a href="/users/logout">Logout</a>
+
+                <a href="/hpr">Host / Referral / Partner</a>
+
+            </div>
+        </div>
+        <nav class="bg-white border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex">
+                        <div class="flex-shrink-0 flex items-center">
+                            <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Eo_circle_blue_letter-t.svg/512px-Eo_circle_blue_letter-t.svg.png" alt="Hotspotty" class="block h-9 w-auto"></a>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"><a href="/" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                Dashboard
+                            </a> <a href="/hotspot" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                Hotspots
+                            </a>
+                            <a href="/profile" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                Profile
+                            </a>
+                            <a href="/hpr" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                Host / Referral / Partner
+                            </a>
+                            <a href="/users/logout" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                            Logout
+                        </a>
+                            <a class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                <div class="hidden sm:flex">
+                                    <div class="relative">
+                                        <div></div>
+                                        <div class="fixed inset-0 z-40" style="display: none;"></div>
+                                        <div class="absolute z-50 mt-2 rounded-md shadow-lg w-48 origin-top-left left-0" style="display: none;">
+                                            <div class="rounded-md shadow-xs py-1 bg-white">
+                                                <div>
+                                                    <a class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        <div class="ml-3 relative"></div>
+                    </div>
+                    <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        <div class="ml-3 relative">
+                            <div class="relative">
+                                <div><button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"><img
+                                            src="https://www.pngfind.com/pngs/m/470-4703547_icon-user-icon-hd-png-download.png"
+                                            alt="Nabeel khanjee" class="h-8 w-8 rounded-full object-cover"></button>
+                                </div>
+                                <div class="fixed inset-0 z-40" style="display: none;"></div>
+                                <div class="absolute z-50 mt-2 rounded-md shadow-lg w-48 origin-top-right right-0" style="display: none;">
+                                    <div class="rounded-md shadow-xs py-1 bg-white">
+                                        <div class="block px-4 py-2 text-xs text-gray-400">
+                                            Manage Account
+                                        </div>
+                                        <div><a href="/profile" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+                                                Profile
+                                            </a></div>
+                                        <!---->
+                                        <div class="border-t border-gray-100"></div>
+                                        <!---->
+                                        <form>
+                                            <div><button type="submit" class="block w-full px-4 py-2 text-sm leading-5 text-gray-700 text-left hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+                                                    Logout
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="-mr-2 flex items-center sm:hidden"><button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+
+                            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+
+                            <!-- <svg
+                                stroke="currentColor" fill="none" viewBox="0 0 24 24" class="h-6 w-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" class="inline-flex"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" class="hidden"></path>
+                            </svg> -->
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="sm:hidden hidden">
+                <div class="pt-2 pb-3 space-y-1">
+                    <div><a href="/" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">
+                            Dashboard
+                        </a></div>
+                    <div><a href="/hotspot" class="block pl-3 pr-4 py-2 border-l-4 border-indigo-400 text-base font-medium text-indigo-700 bg-indigo-50 focus:outline-none focus:text-indigo-800 focus:bg-indigo-100 focus:border-indigo-700 transition duration-150 ease-in-out">
+                            Hotspots
+                        </a></div>
+                    <div></div>
+                </div>
+                <div></div>
+                <div>
+                    <div>
+                        <a class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out"></a>
+                    </div>
+                </div>
+                <div class="flex mb-4 mt-4 justify-center"></div>
+                <div class="pt-4 pb-1 border-t border-gray-200">
+                    <div class="flex items-center px-4">
+                        <div class="flex-shrink-0"><img src="https://www.pngfind.com/pngs/m/470-4703547_icon-user-icon-hd-png-download.png" alt="Nabeel khanjee" class="h-10 w-10 rounded-full"></div>
+                        <div class="ml-3">
+                            <div class="font-medium text-base text-gray-800">Nabeel khanjee</div>
+                            <div class="font-medium text-sm text-gray-500">nabeelshakeel966@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="mt-3 space-y-1">
+                        <div><a href="/profile" class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">
+                                Profile
+                            </a></div>
+                        <!---->
+                        <form method="POST">
+                            <div><button class="w-full text-left block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">
+                                    Logout
+                                </button></div>
+                        </form>
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <header class="bg-white shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    Hotspot Information
+                </h2>
+            </div>
+        </header>
+        <main>
+            <div class="py-12">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                        <div data-v-2265de1f="">
+                            <div data-v-2265de1f="" class="px-6 pt-8 pb-4 bg-white border-gray-200">
+                                <div data-v-2265de1f="" class="flex mb-4">
+                                    <div data-v-2265de1f="" class="w-2/3 h-12">
+                                        <p data-v-2265de1f="" class="text-2xl">
+                                            <%= hotspot.data.name %>
+                                        </p>
+                                        <div data-v-2265de1f="" class="text-sm leading-5 text-gray-500 inline-flex ">
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-v-2265de1f="" class="grid grid-cols-1 md:grid-cols-1 m-4">
+                                    <div data-v-2265de1f="" class="overflow-hidden p-4">
+                                        <div data-v-2265de1f="" class="shadow">
+                                            <div id="map" class="basemap w-full rounded mapboxgl-map" style="height: 250px;">
+                                                <div class="mapboxgl-canary" style="visibility: hidden;"></div>
+                                                <div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" width="682" height="250" style="width: 682px; height: 250px;"></canvas>
+                                                    <div aria-label="Map marker" class="mapboxgl-marker mapboxgl-marker-anchor-center" style="transform: translate(-50%, -50%) translate(341px, 111px) rotateX(0deg) rotateZ(0deg);"><svg display="block" height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000"><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse></g><g fill="#3FB1CE"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path></g><g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path></g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)"><circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle><circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle></g></g></svg></div>
+                                                </div>
+                                                <div class="mapboxgl-control-container">
+                                                    <div class="mapboxgl-ctrl-top-left"></div>
+                                                    <div class="mapboxgl-ctrl-top-right"></div>
+                                                    <div class="mapboxgl-ctrl-bottom-left">
+                                                        <div class="mapboxgl-ctrl" style="display: block;">
+                                                            <a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener nofollow" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mapboxgl-ctrl-bottom-right">
+                                                        <div class="mapboxgl-ctrl mapboxgl-ctrl-attrib">
+                                                            <div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank" title="Mapbox" aria-label="Mapbox" role="listitem">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank" title="OpenStreetMap"
+                                                                    aria-label="OpenStreetMap" role="listitem">© OpenStreetMap</a> <a href="https://www.mapbox.com/map-feedback/" target="_blank" title="Improve this map" aria-label="Improve this map" role="listitem">Improve this map</a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div data-v-2265de1f="" class="grid grid-cols-1 md:grid-cols-1 m-4">
+                                    <div data-v-2265de1f="" class="overflow-hidden p-4">
+                                        Rewards
+                                        <div data-v-2265de1f="" class="pb-4" style="height: 450px;">
+                                            <div class="chartjs-size-monitor">
+                                                <div class="chartjs-size-monitor-expand">
+                                                    <div class=""></div>
+                                                </div>
+                                                <div class="chartjs-size-monitor-shrink">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div><canvas id="myChart" width="682" height="250" style="display: block; width: 682px; height: 250px;" class="chartjs-render-monitor"></canvas></div>
+                                    </div>
+                                </div>
+
+
+                                <div data-v-2265de1f="" class="flex flex-wrap mb-12 mt">
+                                    <div data-v-2265de1f="" class="w-full md:w-1/3 p-4">
+                                        <p data-v-2265de1f="" class="text-xl"> Hotspot Information</p>
+                                        <div data-v-2265de1f="" class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                            <div data-v-2265de1f="" class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                                <div data-v-2265de1f="" class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                                    <table data-v-2265de1f="" class="min-w-full divide-y divide-gray-200">
+                                                        <tr data-v-2265de1f="" class="hover:bg-gray-50">
+                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200"> Name</th>
+                                                            <td data-v-2265de1f="" class="px-6 py-4 whitespace-no-wrap">
+                                                                <div data-v-2265de1f="" class="text-sm leading-5 text-gray-900 hover:text-BLUE-800">
+                                                                    <%= hotspot.data.name %>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-v-2265de1f="" class="hover:bg-gray-50">
+                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200"> today</th>
+                                                            <td data-v-2265de1f="" class="px-6 py-4 whitespace-no-wrap">
+                                                                <div data-v-2265de1f="" class="text-sm leading-5 text-gray-900 hover:text-BLUE-800">
+                                                                    <%= today %>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-v-2265de1f="" class="hover:bg-gray-50">
+                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200"> yesterday</th>
+                                                            <td data-v-2265de1f="" class="px-6 py-4 whitespace-no-wrap">
+                                                                <div data-v-2265de1f="" class="text-sm leading-5 text-gray-900 hover:text-BLUE-800">
+                                                                    <%= yesterday %>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-v-2265de1f="" class="hover:bg-gray-50">
+                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200"> total</th>
+                                                            <td data-v-2265de1f="" class="px-6 py-4 whitespace-no-wrap">
+                                                                <div data-v-2265de1f="" class="text-sm leading-5 text-gray-900 hover:text-BLUE-800">
+                                                                    <%= totalAmount %>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-v-2265de1f="" class="hover:bg-gray-50">
+                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200"> monthly avg</th>
+                                                            <td data-v-2265de1f="" class="px-6 py-4 whitespace-no-wrap">
+                                                                <div data-v-2265de1f="" class="text-sm leading-5 text-gray-900 hover:text-BLUE-800">
+                                                                    <%= monthlyAvg %>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-v-2265de1f="" class="hover:bg-gray-50">
+                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200"> Location</th>
+                                                            <td data-v-2265de1f="" class="px-6 py-4 whitespace-no-wrap">
+                                                                <div data-v-2265de1f="" class="text-sm leading-5 text-gray-900 hover:text-BLUE-800">
+                                                                    <%= hotspot.data.geocode.short_country %> >
+                                                                        <%= hotspot.data.geocode.long_state %>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-v-2265de1f="" class="hover:bg-gray-50">
+                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200"> Status</th>
+                                                            <td data-v-2265de1f="" class="px-6 py-4 whitespace-no-wrap">
+                                                                <div data-v-2265de1f="" class="text-sm leading-5 text-gray-900 hover:text-BLUE-800">
+                                                                    <%= hotspot.data.status.online %>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+
+
+
+                                                    </table>
+
+
+                                                    <div id="mydiv" data-lng=<%=hotspot.data.lng %>></div>
+                                                    <div id="mydiv2" data-lat=<%=hotspot.data.lat %>></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-v-2265de1f="" class="w-full md:w-2/3 p-4">
+                                        <p data-v-2265de1f="" class="text-xl"> Host</p>
+                                        <div data-v-2265de1f="" class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                            <div data-v-2265de1f="" class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                                <div data-v-2265de1f="" class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg p-4">
+
+
+                                                    <div data-v-2265de1f="" class="relative inline-flex">
+                                                        <svg data-v-2265de1f="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 232" class="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none">
+                                                                <path data-v-2265de1f="" d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z" fill="#648299" fill-rule="nonzero">
+
+                                                                </path>
+                                                            </svg>
+                                                        <select data-v-2265de1f="" id="hostName" class="border border-gray-300 rounded-lg text-gray-600 h-10 pl-2 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+                                                                <option data-v-2265de1f="" disabled="disabled" selected="selected">Select your host</option> 
+                                                            </select>
+                                                    </div>
+
+                                                    <a data-v-2265de1f="" href="/hpr">
+                                                        <button data-v-2265de1f="" type="button" class="inline-flex items-center px-4 py-2 bg-BLUE-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-BLUE-700 active:bg-BLUE-900 focus:outline-none focus:border-BLUE-900 focus:shadow-outline-gray transition ease-in-out duration-150 ml-2 float-right">
+                                                             Manage Hosts
+                                   
+                                                            </button>
+
+
+                                                    </a>
+                                                    <button id="host-submit" data-v-2265de1f="" class=" inline-flex items-center px-4 py-2 bg-BLUE-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-BLUE-700 active:bg-BLUE-900 focus:outline-none focus:border-BLUE-900 focus:shadow-outline-gray transition ease-in-out duration-150 ml-2 float-right ">
+    
+                                                        Update                                    
+                        
+                                  
+                                            </button>
+                                                    <div data-v-2265de1f="" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                                        <div data-v-2265de1f="" class="row-span-2">
+                                                            <div data-v-2265de1f="" class="col-span-6 sm:col-span-4 mt-4">
+                                                                <label data-v-2265de1f="" class="block font-medium text-sm text-gray-700" for="host_reward_share">
+                                                                        <span>Reward Share (%)
+
+                                                                        </span>
+                                                                    </label>
+                                                                <input data-v-2265de1f="" class="form-input rounded-md shadow-sm mt-1 block" id="host_reward_share" type="text" placeholder="0" name="rewardShare">
+                                                            </div>
+                                                        </div>
+                                                        <div data-v-2265de1f="" class="row-span-2">
+                                                            <div data-v-2265de1f="" class="col-span-6 sm:col-span-4 mt-4">
+                                                                <label data-v-2265de1f="" class="block font-medium text-sm text-gray-700" for="host_offset_hnt">
+                                                                        <span>
+                                                                            Offset HNT
+
+                                                                        </span>
+                                                                    </label>
+                                                                <input data-v-2265de1f="" class="form-input rounded-md shadow-sm mt-1 block" id="host_offset_hnt" type="text" value="0">
+                                                            </div>
+                                                        </div>
+                                                        <div data-v-2265de1f="" class="row-span-2">
+                                                            <div data-v-2265de1f="" class="col-span-6 sm:col-span-4 mt-4 ">
+                                                                <label data-v-2265de1f="" class="block font-medium text-sm text-gray-700" for="host_start_date">
+                                                                        <span>Start Date</span></label> <input data-v-2265de1f="" class="form-input rounded-md shadow-sm mt-1 block" type="date"
+                                                                    id="host_start_date" placeholder="yyyy-mm-dd"></div>
+                                                        </div>
+                                                        <div data-v-2265de1f="" class=" grid grid-cols-3 md:grid-cols-3 gap-4 mb-6 ">
+                                                            <div class="row-span-2">
+                                                            </div>
+
+                                                        </div>
+
+
+                                                    </div>
+
+                                                    <hr data-v-2265de1f="">
+
+                                                    <div data-v-2265de1f="" class="mt-4 mb-2">Host Reward</div>
+                                                    <div data-v-2265de1f="" class="flex mb-4">
+                                                        <div data-v-2265de1f="" class="w-4/5">
+                                                            <div data-v-2265de1f="" class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                                                <table data-v-2265de1f="" class="min-w-full divide-y divide-gray-200">
+                                                                    <thead data-v-2265de1f="">
+                                                                        <tr data-v-2265de1f="">
+                                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Total</th>
+                                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Total Paid</th>
+                                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> To be Paid</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody data-v-2265de1f="" class="bg-white divide-y divide-gray-200">
+                                                                        <tr data-v-2265de1f="" class="hover:bg-gray-50">
+                                                                            <td data-v-2265de1f="" class="host-total-td px-6 py-4 whitespace-no-wrap text-md text-gray-900 leading-3"> 0.00</td>
+                                                                            <td data-v-2265de1f="" class="host-paid-td px-6 py-4 whitespace-no-wrap text-md text-gray-900 leading-3"> 0.00</td>
+                                                                            <td data-v-2265de1f="" class="host-to-be-paid-td px-6 py-4 whitespace-no-wrap text-md text-gray-900 leading-3"> 0.00</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div data-v-2265de1f="" class="w-1/5">
+                                                            <div data-v-2265de1f="">
+                                                                <button id="host-pay" type="button" data-v-2265de1f="" class="button1 inline-flex items-center px-4 py-2 bg-BLUE-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-BLUE-700 active:bg-BLUE-900 focus:outline-none
+                                                                    focus:border-BLUE-900 focus:shadow-outline-gray transition ease-in-out duration-150 ml-2 float-right "><svg data-v-2265de1f="" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2"><path data-v-2265de1f="" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"></path></svg>
+    
+                                                                           Pay                                   
+                                            
+                                                      
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div data-v-2265de1f="" class="row-span-2">
+                                                        <div data-v-2265de1f="" class="col-span-6 sm:col-span-4 mt-4">
+                                                            <label data-v-2265de1f="" class="block font-medium text-sm text-gray-700" for="host_offset_hnt">
+                                                                        <span>
+Amount to Pay
+                                                                        </span>
+                                                                    </label>
+                                                            <input data-v-2265de1f="" class="input1 disabled form-input rounded-md shadow-sm mt-1 block" type="text" placeholder="0">
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p data-v-2265de1f="" class="text-xl mt-10"> Referral</p>
+                                        <div data-v-2265de1f="" class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                            <div data-v-2265de1f="" class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                                <div data-v-2265de1f="" class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg p-4">
+
+                                                    <div data-v-2265de1f="" class="relative inline-flex">
+                                                        <svg data-v-2265de1f="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 232" class="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none">
+                                                                <path data-v-2265de1f="" d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z" fill="#648299" fill-rule="nonzero"></path>
+                                                            </svg>
+                                                        <select data-v-2265de1f="" id="referralName" class="border border-gray-300 rounded-lg text-gray-600 h-10 pl-2 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"><option data-v-2265de1f="" disabled="disabled" selected="selected">Select your referral</option> </select></div>
+                                                    <a data-v-2265de1f="" href="/hpr">
+                                                        <button data-v-2265de1f="" type="button" class="inline-flex items-center px-4 py-2 bg-BLUE-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-BLUE-700 active:bg-BLUE-900 focus:outline-none focus:border-BLUE-900 focus:shadow-outline-gray transition ease-in-out duration-150 ml-2 float-right">
+                                        Manage Referrals
+                                    </button>
+
+
+                                                    </a>
+                                                    <button data-v-2265de1f="" class=" referral-submit inline-flex items-center px-2 py-2 bg-BLUE-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-BLUE-700 active:bg-BLUE-900 focus:outline-none
+                                                    focus:border-BLUE-900 focus:shadow-outline-gray transition ease-in-out duration-150 ml-2 float-right ">
+                
+                                                            Update                                    
+                            
+                                      
+                                                </button>
+                                                    <div data-v-2265de1f="" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                                        <div data-v-2265de1f="" class="row-span-2">
+                                                            <div data-v-2265de1f="" class="col-span-6 sm:col-span-4 mt-4"><label data-v-2265de1f="" class="block font-medium text-sm text-gray-700" for="referral_reward_share"><span>Reward Share (%)</span></label> <input data-v-2265de1f="" class="form-input rounded-md shadow-sm mt-1 block"
+                                                                    id="referral_reward_share" type="text" placeholder="0"></div>
+                                                        </div>
+                                                        <div data-v-2265de1f="" class="row-span-2">
+                                                            <div data-v-2265de1f="" class="col-span-6 sm:col-span-4 mt-4"><label data-v-2265de1f="" class="block font-medium text-sm text-gray-700" for="referral_offset_hnt"><span>Offset HNT</span></label> <input data-v-2265de1f="" class="form-input rounded-md shadow-sm mt-1 block"
+                                                                    id="referral_offset_hnt" type="text" value="0"></div>
+                                                        </div>
+                                                        <div data-v-2265de1f="" class="row-span-2">
+                                                            <div data-v-2265de1f="" class="col-span-6 sm:col-span-4 mt-4 "><label data-v-2265de1f="" class="block font-medium text-sm text-gray-700" for="referral_start_date"><span>Start Date</span></label> <input data-v-2265de1f="" class="form-input rounded-md shadow-sm mt-1 block"
+                                                                    type="date" id="referral_start_date" placeholder="yyyy-mm-dd"></div>
+                                                        </div>
+                                                        <div data-v-2265de1f="" class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                                                        </div>
+
+
+                                                    </div>
+
+                                                    <hr data-v-2265de1f="">
+
+                                                    <div data-v-2265de1f="" class="mt-4 mb-2">Referral Reward</div>
+                                                    <div data-v-2265de1f="" class="flex mb-4">
+                                                        <div data-v-2265de1f="" class="w-4/5">
+                                                            <div data-v-2265de1f="" class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                                                <table data-v-2265de1f="" class="min-w-full divide-y divide-gray-200">
+                                                                    <thead data-v-2265de1f="">
+                                                                        <tr data-v-2265de1f="">
+                                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Total</th>
+                                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> Total Paid</th>
+                                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> To be Paid</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody data-v-2265de1f="" class="bg-white divide-y divide-gray-200">
+                                                                        <tr data-v-2265de1f="" class="hover:bg-gray-50">
+                                                                            <td data-v-2265de1f="" class="referral-total-td px-6 py-4 whitespace-no-wrap text-md text-gray-900 leading-3"> 0.00</td>
+                                                                            <td data-v-2265de1f="" class="referral-paid-td px-6 py-4 whitespace-no-wrap text-md text-gray-900 leading-3"> 0.00</td>
+                                                                            <td data-v-2265de1f="" class="referral-to-be-paid-td px-6 py-4 whitespace-no-wrap text-md text-gray-900 leading-3"> 0.00</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div data-v-2265de1f="" class="w-1/5">
+                                                            <div data-v-2265de1f="">
+                                                                <button id="referral-pay" data-v-2265de1f="" type="button" class="button2 inline-flex items-center px-4 py-2 bg-BLUE-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-BLUE-700 active:bg-BLUE-900 focus:outline-none focus:border-BLUE-900 focus:shadow-outline-gray transition ease-in-out duration-150 ml-2 float-right"><svg data-v-2265de1f="" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2"><path data-v-2265de1f="" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"></path></svg>
+                                                                    Pay
+                                                                 </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div data-v-2265de1f="" class="row-span-2">
+                                                        <div data-v-2265de1f="" class="col-span-6 sm:col-span-4 mt-4">
+                                                            <label data-v-2265de1f="" class="block font-medium text-sm text-gray-700" for="host_offset_hnt">
+                                                                        <span>
+Amount to Pay
+
+                                                                        </span>
+                                                                    </label>
+                                                            <input data-v-2265de1f="" class="input2 form-input rounded-md shadow-sm mt-1 block" type="text" placeholder="0">
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p data-v-2265de1f="" class="text-xl mt-10"> Partner</p>
+                                        <div data-v-2265de1f="" class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                            <div data-v-2265de1f="" class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                                <div data-v-2265de1f="" class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg p-4">
+
+
+                                                    <div data-v-2265de1f="" class="relative inline-flex">
+                                                        <svg data-v-2265de1f="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 232" class="w-2 h-2 absolute top-0 right-0 m-4 pointer-events-none">
+                                                                <path data-v-2265de1f="" d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z" fill="#648299" fill-rule="nonzero">
+
+                                                                </path></svg> <select data-v-2265de1f="" id="partnerName" class="border border-gray-300 rounded-lg text-gray-600 h-10 pl-2 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none"><option data-v-2265de1f="" disabled="disabled" selected="selected">Select your partner</option> </select>
+                                                    </div>
+                                                    <a data-v-2265de1f="" href="/hpr">
+                                                        <button data-v-2265de1f="" type="button" class="inline-flex items-center px-4 py-2 bg-BLUE-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-BLUE-700 active:bg-BLUE-900 focus:outline-none focus:border-BLUE-900 focus:shadow-outline-gray transition ease-in-out duration-150 ml-2 float-right">
+                                                                Manage Partners
+                                    
+                                        
+                                                  
+                                                            </button>
+
+                                                    </a>
+                                                    <button data-v-2265de1f="" id="partner-submit" class=" inline-flex items-center px-2 py-2 bg-BLUE-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-BLUE-700 active:bg-BLUE-900 focus:outline-none
+                                                    focus:border-BLUE-900 focus:shadow-outline-gray transition ease-in-out duration-150 ml-2 float-right ">
+
+                                                            Update                                    
+                            
+                                      
+                                                </button>
+                                                    <div data-v-2265de1f="" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                                        <div data-v-2265de1f="" class="row-span-2">
+                                                            <div data-v-2265de1f="" class="col-span-6 sm:col-span-4 mt-4">
+                                                                <label data-v-2265de1f="" class="block font-medium text-sm text-gray-700" for="partner_reward_share">
+                                                                        <span>Reward Share (%)
+
+                                                                        </span>
+                                                                    </label>
+                                                                <input data-v-2265de1f="" class="form-input rounded-md shadow-sm mt-1 block" id="partner_reward_share" type="text" placeholder="0">
+                                                            </div>
+                                                        </div>
+                                                        <div data-v-2265de1f="" class="row-span-2">
+                                                            <div data-v-2265de1f="" class="col-span-6 sm:col-span-4 mt-4"><label data-v-2265de1f="" class="block font-medium text-sm text-gray-700" for="partner_offset_hnt"><span>Offset HNT</span></label> <input data-v-2265de1f="" class="form-input rounded-md shadow-sm mt-1 block"
+                                                                    id="partner_offset_hnt" type="text" value="0"></div>
+                                                        </div>
+                                                        <div data-v-2265de1f="" class="row-span-2">
+                                                            <div data-v-2265de1f="" class="col-span-6 sm:col-span-4 mt-4 ">
+                                                                <label data-v-2265de1f="" class="block font-medium text-sm text-gray-700" for="partner_start_date">
+                                                                        <span>Start Date
+
+                                                                        </span>
+                                                                    </label>
+                                                                <input data-v-2265de1f="" class="form-input rounded-md shadow-sm mt-1 block" type="date" id="partner_start_date" placeholder="yyyy-mm-dd">
+
+
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div data-v-2265de1f="" class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+
+                                                        </div>
+
+
+
+                                                    </div>
+
+                                                    <hr data-v-2265de1f=" ">
+
+                                                    <div data-v-2265de1f=" " class="mt-4 mb-2 ">Partner Reward</div>
+                                                    <div data-v-2265de1f=" " class="flex mb-4 ">
+                                                        <div data-v-2265de1f=" " class="w-4/5 ">
+                                                            <div data-v-2265de1f=" " class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg ">
+                                                                <table data-v-2265de1f=" " class="min-w-full divide-y divide-gray-200 ">
+                                                                    <thead data-v-2265de1f=" ">
+                                                                        <tr data-v-2265de1f=" ">
+                                                                            <th data-v-2265de1f=" " class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider "> Total</th>
+                                                                            <th data-v-2265de1f=" " class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider "> Total Paid</th>
+                                                                            <th data-v-2265de1f=" " class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider "> To be Paid</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody data-v-2265de1f=" " class="bg-white divide-y divide-gray-200 ">
+                                                                        <tr data-v-2265de1f=" " class="hover:bg-gray-50 ">
+                                                                            <td data-v-2265de1f=" " class="partner-total-td px-6 py-4 whitespace-no-wrap text-md text-gray-900 leading-3 "> 0.00</td>
+                                                                            <td data-v-2265de1f=" " class="partner-paid-td px-6 py-4 whitespace-no-wrap text-md text-gray-900 leading-3 "> 0.00</td>
+                                                                            <td data-v-2265de1f=" " class="partner-to-be-paid-td px-6 py-4 whitespace-no-wrap text-md text-gray-900 leading-3 "> 0.00</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div data-v-2265de1f=" " class="w-1/5 ">
+                                                            <div data-v-2265de1f=" ">
+                                                                <button data-v-2265de1f=" " type="button " id="partner-pay" class="button3 inline-flex items-center px-4 py-2 bg-BLUE-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest
+                                                                hover:bg-BLUE-700 active:bg-BLUE-900 focus:outline-none focus:border-BLUE-900 focus:shadow-outline-gray transition ease-in-out duration-150 ml-2 float-right ">
+                                                                        <svg data-v-2265de1f=" " fill="none " stroke="currentColor " viewBox="0 0 24 24 " xmlns="http://www.w3.org/2000/svg " class="w-6 h-6 mr-2 ">
+                                                                            <path data-v-2265de1f=" " stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12 ">
+
+                                                                            </path>
+                                                                        </svg>
+                                                                     Pay
+                                     
+                                                                    </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div data-v-2265de1f="" class="row-span-2">
+                                                        <div data-v-2265de1f="" class="col-span-6 sm:col-span-4 mt-4">
+                                                            <label data-v-2265de1f="" class="block font-medium text-sm text-gray-700" for="host_offset_hnt">
+                                                                        <span>
+Amount to Pay
+
+                                                                        </span>
+                                                                    </label>
+                                                            <input data-v-2265de1f="" class="input3 form-input rounded-md shadow-sm mt-1 block" type="text" placeholder="0">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+
+
+                                <div data-v-2265de1f="" class="flex flex-col px-6 py-8 ">
+                                    <p data-v-2265de1f="" class="text-2xl"> Information &amp; Payments</p>
+                                    <div data-v-2265de1f="" class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                        <div data-v-2265de1f="" class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                            <div data-v-2265de1f="" class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                                                <table data-v-2265de1f="" class="min-w-full divide-y divide-gray-200">
+                                                    <thead data-v-2265de1f="">
+                                                        <tr data-v-2265de1f="">
+                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Name
+                                                            </th>
+                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Rewards (HNT/Currency)
+                                                            </th>
+                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                email
+                                                            </th>
+                                                            <th data-v-2265de1f="" class="px-6 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                                Date
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody data-v-2265de1f="" class="payment-table bg-white divide-y divide-gray-200">
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <hr data-v-2265de1f=" ">
+                                <button class="del-hotspot mt-3 inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none
+                                                                focus:border-red-700 focus:shadow-outline-red active:bg-red-600 transition ease-in-out duration-150 ">Delete Hotspot</button>
+                                <div data-v-2265de1f=" " class="v-portal " style="display: none; "></div>
+                                <div data-v-2265de1f=" " class="v-portal " style="display: none; "></div>
+                                <div data-v-2265de1f=" " class="v-portal " style="display: none; "></div>
+                                <div data-v-2265de1f=" " class="v-portal " style="display: none; "></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </main>
+
+        <footer class="bg-white ">
+            <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8 ">
+                <div class="flex justify-center space-x-6 md:order-2 "><a href="mailto:trackmyhnt@gmail.com" class="text-gray-400 hover:text-gray-500 "><span class="sr-only ">Email</span> <svg xmlns="http://www.w3.org/2000/svg " fill="none
+                                                                " viewBox="0 0 24 24 " stroke="currentColor " class="h-6 w-6 "><path stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2
+                                                                2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76
+                                                                "></path></svg></a> <a href="https://twitter.com/trackmyh
+                                                                " target="_blank " class="text-gray-400 hover:text-gray-500 "><span class="sr-only ">Twitter</span> <svg fill="currentColor " viewBox="0 0 24 24 " aria-hidden="true " class="h-6 w-6 "><path d="M8.29 20.251c7.547
+                                                                0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65
+                                                                0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616
+                                                                0 006.29 1.84 "></path></svg></a></div>
+                <div class="mt-8 md:mt-0 md:order-1 ">
+                    <p class="text-center text-base text-gray-400 ">
+                        © 2021 TrackMyHNT
+                    </p>
+                </div>
+            </div>
+        </footer>
+        </div>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+        <script src="../public/js/main.js "></script>
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+
+        <script>
+            var lng = document.getElementById('mydiv').dataset.lng;
+            var lat = document.getElementById('mydiv2').dataset.lat;
+            mapboxgl.accessToken = 'pk.eyJ1IjoiemFpbmhpdGhlciIsImEiOiJja29vbDBreTgwYzhoMnNwYzkxams3cnhvIn0.LbIecz0d6jkDn9GLl_UPZA';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                zoom: 11.5,
+                center: [lng, lat]
+            });
+        </script>
+
+        <script>
+            let hostSelect = document.getElementById("hostName");
+            fetch("http://trackmyhnt.com/host/hosts")
+                .then((res) => res.json())
+                .then((data) => {
+                    for (let host of data.hosts) {
+                        let option = document.createElement("option");
+                        option.value = host._id;
+                        option.text = host.name;
+                        hostSelect.appendChild(option);
+                    }
+                });
+
+            let hostSubmit = document.getElementById("host-submit");
+            let hostStartDate = document.getElementById("host_start_date");
+            let hostOffsetHnt = document.getElementById("host_offset_hnt");
+            let hostRewardShare = document.getElementById("host_reward_share");
+            let hostDate = "";
+            let hostTotalTd = document.querySelector(".host-total-td");
+            let hostPaidTd = document.querySelector(".host-paid-td");
+            let hostToBePaidTd = document.querySelector(".host-to-be-paid-td");
+
+            let input1 = document.querySelector(".input1");
+            input1.disabled = true;
+
+            hostStartDate.onchange = function(e) {
+                hostDate = e.target.value;
+            }
+
+            let hostToBePaid;
+
+
+            hostSubmit.addEventListener("click", function(e) {
+                input1.disabled = false;
+                let url = window.location.href;
+                let parts = url.split("/");
+                fetch(`https://api.helium.io/v1/hotspots/${parts[4]}/rewards/sum?min_time=${hostDate}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+                        data.data.total = parseFloat(data.data.total);
+
+                        console.log(hostOffsetHnt.value, hostRewardShare.value);
+                        hostToBePaid = ((parseFloat(data.data.total) * ((parseFloat(hostRewardShare.value)) / 100)) + parseFloat(hostOffsetHnt.value));
+                        console.log(hostToBePaid);
+                        console.log("TOTAL WAS: ", data.data.total);
+                        const putMethod = {
+                            method: 'PUT', // Method itself
+                            headers: {
+                                'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+                            },
+                            body: JSON.stringify({
+                                    toBePaid: parseFloat(hostToBePaid)
+                                }) // We send data in JSON format
+                        };
+                        fetch(`http://trackmyhnt.com/host/savehost/${hostSelect.value}`, putMethod)
+                            .then((res) => res.json())
+                            .then((data2) => {
+                                hostTotalTd.textContent = data.data.total;
+                                // hostPaidTd.textContent = 0;
+                                hostToBePaidTd.textContent = hostToBePaid;
+                                return fetch(`http://trackmyhnt.com/host/host/${hostSelect.value}`)
+                                    .then((res) => res.json())
+                                    .then((data) => {
+
+                                        hostPaidTd.textContent = data.host.paid;
+                                    })
+                                    .catch((err) => console.log(err))
+                            })
+                            .catch((err) => console.log(err))
+                    });
+            })
+
+            let hostPay = document.getElementById("host-pay");
+
+
+
+
+            hostPay.addEventListener("click", function() {
+                fetch(`http://trackmyhnt.com/host/host/${hostSelect.value}`)
+                    .then((resp) => resp.json())
+                    .then((data) => {
+                        console.log(data);
+                        let payPut = {
+                            method: "PUT",
+                            headers: {
+                                'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+                            },
+                            body: JSON.stringify({
+                                    paid: input1.value
+                                }) // We send data in JSON format
+                        };
+                        fetch(`http://trackmyhnt.com/host/payhost/${hostSelect.value}`, payPut)
+                            .then((res) => res.json())
+                            .then((data3) => {
+                                hostPaidTd.textContent = parseFloat(hostPaidTd.textContent) + parseFloat(input1.value);
+                                hostToBePaidTd.textContent = hostToBePaid - input1.value;
+                                alert("You have paid successfully");
+                                return fetch('http://trackmyhnt.com/paid', {
+                                        method: 'post',
+                                        headers: {
+                                            'Accept': 'application/json, text/plain, */*',
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            host: hostSelect.value,
+                                            payment: parseFloat(input1.value)
+                                        })
+                                    })
+                                    .then((res) => res.json())
+                                    .then((data) => console.log(data));
+                            })
+                    })
+
+            })
+        </script>
+
+        <script>
+            let referralSelect = document.getElementById("referralName");
+            fetch("http://trackmyhnt.com/referral/referrals")
+                .then((res) => res.json())
+                .then((data) => {
+                    for (let referral of data.referrals) {
+                        let option = document.createElement("option");
+                        option.value = referral._id;
+                        option.text = referral.name;
+                        referralSelect.appendChild(option);
+                    }
+                });
+
+            let referralSubmit = document.querySelector(".referral-submit");
+            let referralStartDate = document.getElementById("referral_start_date");
+            let referralOffsetHnt = document.getElementById("referral_offset_hnt");
+            let referralRewardShare = document.getElementById("referral_reward_share");
+            let referralDate = "";
+            let referralTotalTd = document.querySelector(".referral-total-td");
+            let referralPaidTd = document.querySelector(".referral-paid-td");
+            let referralToBePaidTd = document.querySelector(".referral-to-be-paid-td");
+
+            let input2 = document.querySelector(".input2");
+            input2.disabled = true;
+
+            referralStartDate.onchange = function(e) {
+                referralDate = e.target.value;
+            }
+
+            let referralToBePaid;
+
+
+            referralSubmit.addEventListener("click", function(e) {
+
+                input2.disabled = false;
+
+                let url = window.location.href;
+                let parts = url.split("/");
+                fetch(`https://api.helium.io/v1/hotspots/${parts[4]}/rewards/sum?min_time=${referralDate}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+                        data.data.total = parseFloat(data.data.total);
+
+                        console.log(referralOffsetHnt.value, referralRewardShare.value);
+                        referralToBePaid = ((parseFloat(data.data.total) * ((parseFloat(referralRewardShare.value)) / 100)) + parseFloat(referralOffsetHnt.value));
+                        console.log(referralToBePaid);
+                        console.log("TOTAL WAS: ", data.data.total);
+                        const putMethod = {
+                            method: 'PUT', // Method itself
+                            headers: {
+                                'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+                            },
+                            body: JSON.stringify({
+                                    toBePaid: parseFloat(referralToBePaid)
+                                }) // We send data in JSON format
+                        };
+                        fetch(`http://trackmyhnt.com/referral/savereferral/${referralSelect.value}`, putMethod)
+                            .then((res) => res.json())
+                            .then((data2) => {
+                                referralTotalTd.textContent = data.data.total;
+                                //referralPaidTd.textContent = 0;
+                                referralToBePaidTd.textContent = referralToBePaid;
+                                return fetch(`http://trackmyhnt.com/referral/referral/${referralSelect.value}`)
+                                    .then((res) => res.json())
+                                    .then((data) => {
+
+                                        referralPaidTd.textContent = data.referral.paid;
+                                    })
+                                    .catch((err) => console.log(err))
+                            })
+                            .catch((err) => console.log(err))
+                    });
+            })
+
+            let referralPay = document.getElementById("referral-pay");
+
+
+            referralPay.addEventListener("click", function() {
+                fetch(`http://trackmyhnt.com/referral/referral/${referralSelect.value}`)
+                    .then((resp) => resp.json())
+                    .then((data) => {
+                        console.log(data);
+                        let payPut = {
+                            method: "PUT",
+                            headers: {
+                                'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+                            },
+                            body: JSON.stringify({
+                                    paid: parseFloat(input2.value)
+                                }) // We send data in JSON format
+                        };
+                        fetch(`http://trackmyhnt.com/referral/payreferral/${referralSelect.value}`, payPut)
+                            .then((res) => res.json())
+                            .then((data3) => {
+                                referralPaidTd.textContent = parseFloat(referralPaidTd.textContent) + parseFloat(input2.value);
+                                referralToBePaidTd.textContent = referralToBePaid - input2.value;
+                                alert("You have paid successfully");
+                                return fetch('http://trackmyhnt.com/paid', {
+                                        method: 'post',
+                                        headers: {
+                                            'Accept': 'application/json, text/plain, */*',
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            referral: referralSelect.value,
+                                            payment: parseFloat(input2.value)
+                                        })
+                                    })
+                                    .then((res) => res.json())
+                                    .then((data) => console.log(data));
+                            })
+                    })
+
+            })
+        </script>
+
+        <script>
+            let partnerSelect = document.getElementById("partnerName");
+            fetch("http://trackmyhnt.com/partner/partners")
+                .then((res) => res.json())
+                .then((data) => {
+                    for (let partner of data.partners) {
+                        let option = document.createElement("option");
+                        option.value = partner._id;
+                        option.text = partner.name;
+                        partnerSelect.appendChild(option);
+                    }
+                });
+
+            let partnerSubmit = document.getElementById("partner-submit");
+            let partnerStartDate = document.getElementById("partner_start_date");
+            let partnerOffsetHnt = document.getElementById("partner_offset_hnt");
+            let partnerRewardShare = document.getElementById("partner_reward_share");
+            let partnerDate = "";
+            let partnerTotalTd = document.querySelector(".partner-total-td");
+            let partnerPaidTd = document.querySelector(".partner-paid-td");
+            let partnerToBePaidTd = document.querySelector(".partner-to-be-paid-td");
+
+            let input3 = document.querySelector(".input3");
+            input3.disabled = true;
+
+            partnerStartDate.onchange = function(e) {
+                partnerDate = e.target.value;
+            }
+
+            let partnerToBePaid;
+
+
+            partnerSubmit.addEventListener("click", function(e) {
+
+                input3.disabled = false;
+
+                let url = window.location.href;
+                let parts = url.split("/");
+                fetch(`https://api.helium.io/v1/hotspots/${parts[4]}/rewards/sum?min_time=${partnerDate}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+                        data.data.total = parseFloat(data.data.total);
+
+                        console.log(partnerOffsetHnt.value, partnerRewardShare.value);
+                        partnerToBePaid = ((parseFloat(data.data.total) * ((parseFloat(partnerRewardShare.value)) / 100)) + parseFloat(partnerOffsetHnt.value));
+                        console.log(partnerToBePaid);
+                        console.log("TOTAL WAS: ", data.data.total);
+                        const putMethod = {
+                            method: 'PUT', // Method itself
+                            headers: {
+                                'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+                            },
+                            body: JSON.stringify({
+                                    toBePaid: parseFloat(partnerToBePaid)
+                                }) // We send data in JSON format
+                        };
+                        fetch(`http://trackmyhnt.com/partner/savepartner/${partnerSelect.value}`, putMethod)
+                            .then((res) => res.json())
+                            .then((data2) => {
+                                partnerTotalTd.textContent = data.data.total;
+                                //   partnerPaidTd.textContent = 0;
+                                partnerToBePaidTd.textContent = partnerToBePaid;
+                                return fetch(`http://trackmyhnt.com/partner/partner/${partnerSelect.value}`)
+                                    .then((res) => res.json())
+                                    .then((data) => {
+
+                                        partnerPaidTd.textContent = data.partner.paid;
+                                    })
+                                    .catch((err) => console.log(err))
+                            })
+                            .catch((err) => console.log(err))
+                    });
+            })
+
+            let partnerPay = document.getElementById("partner-pay");
+
+
+            partnerPay.addEventListener("click", function() {
+                fetch(`http://trackmyhnt.com/partner/partner/${partnerSelect.value}`)
+                    .then((resp) => resp.json())
+                    .then((data) => {
+                        console.log(data);
+                        let payPut = {
+                            method: "PUT",
+                            headers: {
+                                'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+                            },
+                            body: JSON.stringify({
+                                    paid: parseFloat(input3.value)
+                                }) // We send data in JSON format
+                        };
+                        fetch(`http://trackmyhnt.com/partner/paypartner/${partnerSelect.value}`, payPut)
+                            .then((res) => res.json())
+                            .then((data3) => {
+                                partnerPaidTd.textContent = parseFloat(partnerPaidTd.textContent) + parseFloat(input3.value);
+                                partnerToBePaidTd.textContent = partnerToBePaid - input3.value;
+                                alert("You have paid successfully");
+                                return fetch('http://trackmyhnt.com/paid', {
+                                        method: 'post',
+                                        headers: {
+                                            'Accept': 'application/json, text/plain, */*',
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify({
+                                            partner: partnerSelect.value,
+                                            payment: parseFloat(input3.value)
+                                        })
+                                    })
+                                    .then((res) => res.json())
+                                    .then((data) => console.log(data))
+                            })
+                    })
+
+            })
+        </script>
+
+
+
+        <script>
+            let deleteBtn = document.querySelector(".del-hotspot");
+            let hotspotId = window.location.href;
+            let hotspotUrl = hotspotId.split("/ ")[4];
+
+            deleteBtn.addEventListener("click ", function() {
+                fetch(`http://trackmyhnt.com/deletehotspot/${hotspotUrl}`, {
+                        method: 'DELETE',
+                    })
+                    .then(res => res.json()) // or res.json()
+                    .then(res => window.location.href = "http://trackmyhnt.com/hotspot ")
+                    .catch(err => window.location.href = "http://trackmyhnt.com/hotspot ");
+
+            });
+        </script>
+
+        <script>
+            let hotId = window.location.href.split("/");
+            let hotUrl = hotId[4];
+
+            console.log("YEAH");
+            console.log(hotUrl);
+
+            var ctx = document.getElementById('myChart').getContext('2d');
+            fetch(`https://api.helium.io/v1/hotspots/${hotUrl}/rewards/sum?min_time=-65%20day&bucket=day`)
+                .then((res) => res.json())
+                .then((data) => {
+
+                    let arrTotal = [];
+                    let arrDate = [];
+                    console.log(data.data);
+                    data.data.forEach((d) => {
+
+                        arrTotal.push(d.total);
+                        arrDate.push(d.timestamp.split('T')[0]);
+                    })
+                    arrTotal.reverse();
+                    arrDate.reverse();
+
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: arrDate,
+                            datasets: [{
+                                label: '# of Votes',
+                                data: arrTotal,
+                                backgroundColor: [
+                                    'rgba(54, 162, 235, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(54, 162, 235, 1)',
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                })
+        </script>
+
+        <script>
+            let tbody = document.querySelector(".payment-table");
+            fetch('http://trackmyhnt.com/paid')
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data.paidArr);
+                    for (let i = 0; i < data.paidArr.length; i++) {
+                        if (data.paidArr[i].host != null) {
+                            //console.log(data.paidArr[i].host)
+                            let trow = document.createElement("TR");
+                            trow.className = "hover:bg-gray-50";
+                            let tdata1 = document.createElement("td");
+                            tdata1.className = "px-6 py-4 whitespace-no-wrap text-gray-500";
+                            tdata1.textContent = data.paidArr[i].host.name;
+                            trow.appendChild(tdata1);
+
+                            let tdata2 = document.createElement("td");
+                            tdata2.className = "px-6 py-4 whitespace-no-wrap text-gray-500";
+                            tdata2.textContent = data.paidArr[i].payment;
+                            trow.appendChild(tdata2);
+
+                            let tdata3 = document.createElement("td");
+                            tdata3.className = "px-6 py-4 whitespace-no-wrap text-gray-500";
+                            tdata3.textContent = data.paidArr[i].host.email;
+                            trow.appendChild(tdata3);
+
+                            let tdata4 = document.createElement("td");
+                            tdata4.className = "px-6 py-4 whitespace-no-wrap text-gray-500";
+                            tdata4.textContent = data.paidArr[i].createdAt;
+                            trow.appendChild(tdata4);
+
+                            tbody.appendChild(trow);
+                        }
+
+                        if (data.paidArr[i].referral) {
+                            //console.log(data.paidArr[i].referral)
+                            let rtrow = document.createElement("TR");
+                            rtrow.className = "hover:bg-gray-50";
+                            let rtdata1 = document.createElement("td");
+                            rtdata1.className = "px-6 py-4 whitespace-no-wrap text-gray-500";
+                            rtdata1.textContent = data.paidArr[i].referral.name;
+                            rtrow.appendChild(rtdata1);
+
+                            let rtdata2 = document.createElement("td");
+                            rtdata2.className = "px-6 py-4 whitespace-no-wrap text-gray-500";
+                            rtdata2.textContent = data.paidArr[i].payment;
+                            rtrow.appendChild(rtdata2);
+
+                            let rtdata3 = document.createElement("td");
+                            rtdata3.className = "px-6 py-4 whitespace-no-wrap text-gray-500";
+                            rtdata3.textContent = data.paidArr[i].referral.email;
+                            rtrow.appendChild(rtdata3);
+
+                            let rtdata4 = document.createElement("td");
+                            rtdata4.className = "px-6 py-4 whitespace-no-wrap text-gray-500";
+                            rtdata4.textContent = data.paidArr[i].referral.createdAt;
+                            rtrow.appendChild(rtdata4);
+
+                            tbody.appendChild(rtrow);
+                        }
+                        if (data.paidArr[i].partner) {
+                            // console.log(data.paidArr[i].partner)
+                            let ptrow = document.createElement("TR");
+                            ptrow.className = "hover:bg-gray-50";
+                            let ptdata1 = document.createElement("td");
+                            ptdata1.className = "px-6 py-4 whitespace-no-wrap text-gray-500";
+                            ptdata1.textContent = data.paidArr[i].partner.name;
+                            ptrow.appendChild(ptdata1);
+
+                            let ptdata2 = document.createElement("td");
+                            ptdata2.className = "px-6 py-4 whitespace-no-wrap text-gray-500";
+                            ptdata2.textContent = data.paidArr[i].payment;
+                            ptrow.appendChild(ptdata2);
+
+                            let ptdata3 = document.createElement("td");
+                            ptdata3.className = "px-6 py-4 whitespace-no-wrap text-gray-500";
+                            ptdata3.textContent = data.paidArr[i].partner.email;
+                            ptrow.appendChild(ptdata3);
+
+                            let ptdata4 = document.createElement("td");
+                            ptdata4.className = "px-6 py-4 whitespace-no-wrap text-gray-500";
+                            ptdata4.textContent = data.paidArr[i].partner.createdAt;
+                            ptrow.appendChild(ptdata4);
+
+                            tbody.appendChild(ptrow);
+                        }
+                    }
+                })
+        </script>
+
+
+</body>
+
+</html>
